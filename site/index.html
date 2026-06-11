@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N-Play</title>
+    
+    <link rel="stylesheet" href="estilo.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/abcjs/6.2.2/abcjs-basic-min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/abcjs/6.2.2/abcjs-audio.css">
+    
+    <script src="acordes.js"></script>
+    <script src="ritmos.js"></script>
+    <script src="app1.js" defer></script>
+</head>
+<body>
+
+<div class="container">
+    <h2>N-Play Música</h2>
+    
+    <div class="row">
+        <div class="col">
+            <label>Título da música </label>
+            <input id="titulo" value="Música">
+            <label>Compositor</label>
+            <input id="compositor" value="N-Play Música">
+            <label>Arranjador</label>
+            <input id="arranjador" value="Arr: N-Play">
+        </div>
+        
+        <div class="col" style="display:flex; gap:10px; min-width: 450px;">
+            <div>
+                <label>📁 Categoria</label>
+                <select id="ritmoCategoria"></select>
+            </div>
+            <div>
+                <label>📂 Subcategoria</label>
+                <select id="ritmoSubcategoria"></select>
+            </div>
+            <div>
+                <label> Variação</label>
+                <select id="ritmoVariacao"></select>
+            </div>
+        </div>
+
+        <div class="col">
+            <label>Clave de Fá (7 Modos)</label>
+            <select id="padraoBaixo">
+                <option value="tonica">1. Tônica Pura</option>
+                <option value="quinta">2. Quinta Justa</option>
+                <option value="oitava">3. Oitava </option>
+                <option value="triade_aberta">4. Tônica-5ª-8ª</option>
+                <option value="triade_fechada">5. Tríade Fechada</option>
+                <option value="tetrade">6. Tétrade</option>
+                <option value="baixo_acorde">7. Tríade Aberta</option>
+            </select>
+        </div>
+    </div>
+    
+    
+    <div class="row" style="margin-top: 1rem; background: #f3f4f6; padding: 10px; border-radius: 6px;">
+        <div class="col1" style="max-width: 80px;">
+            <label>⏱️ (BPM)</label>
+            <input id="bpm" type="number" value="120" min="40" max="250">
+        </div>
+
+        <div class="col1" style="max-width: 80px;">
+    <label>🔑 Tom</label>
+    <input id="clave" value="C" placeholder="Ex: C, Am" style="width: 100%;">
+</div>
+
+        <div class="col" style="display: flex; align-items: center; margin-top: 1.5rem; gap: 15px;">
+            <div style="display: flex; align-items: center;">
+                <input id="loopCheck" type="checkbox" style="width: auto; margin-right: 8px;">
+                <label for="loopCheck" style="margin: 0; cursor: pointer;">🔄 Ativar Repetições</label>
+            </div>
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <label style="margin: 0; white-space: nowrap;">Quantidade:</label>
+                <input id="loopVezes" type="number" value="4" min="1" max="100" style="width: 60px; padding: 2px 5px;">
+            </div>
+        </div>
+    </div>
+
+    <label style="margin-top: 1rem;">🎸 Harmonia - Cifras</label>
+    <input id="cifras" value="C | Am | Dm | G | C" placeholder="Ex: C:1 Am:3 | F:1/4">
+    
+    <div style="margin-top: .5rem;">
+        <button class="btn-transpor" onclick="alterarTom(-1)">b Transpor -1 Semitom</button>
+        <button class="btn-transpor" onclick="alterarTom(1)"># Transpor +1 Semitom</button>
+    </div>
+
+    <div class="painel" style="margin-top: 1.5rem;">
+        <label>🔊 Player</label>
+        <div id="audio-player"></div>
+        <hr style="border:0; height:1px; background:#ddd; margin:15px 0;">
+            <div id="partitura"></div>
+    </div>
+</div>
+
+
+</body>
+</html>
